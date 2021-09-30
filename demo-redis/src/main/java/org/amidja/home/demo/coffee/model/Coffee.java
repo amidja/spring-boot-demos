@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Coffee {
+	
+	public final static String REDIS_KEY = "demo:coffees:id:";
+	
 	private String id;
 	private String name;
 	

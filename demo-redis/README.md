@@ -3,10 +3,12 @@
 This demo application is created using a spring boot guide (https://spring.io/guides/gs/spring-data-reactive-redis/ ). 
 The key objective of creating this application following the guide is to learn how to use Redis with non-blocking Lettuce driver.
 
-
+## Try Redis
+ - Interactive Redis - https://try.redis.io/
+ 
 
 ## Testing the application
-- CURL http://localhost:8080/coffees
+- curl http://localhost:8080/coffees
 
 ## Reference
 - Project Reactor: https://projectreactor.io/
@@ -18,3 +20,7 @@ The key objective of creating this application following the guide is to learn h
 ## Markdown 
 
 https://www.markdownguide.org/basic-syntax/
+
+RedisProperties
+RedisReactiveAutoConfiguration
+MongoReactiveDataAutoConfiguration
