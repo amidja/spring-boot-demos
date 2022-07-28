@@ -1,6 +1,6 @@
 spring:
   redis:
     host: localhost
-    port: 6379
-    clientName: demo-redis-client
-    clientType: LETTUCE
+    port: 6370
+    #clientName: demo-redis-client
+    #clientType: LETTUCE
