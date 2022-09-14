@@ -9,9 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @Slf4j
-public class ReactiveRedisApplication implements ApplicationRunner{
+public class ReactiveRedisApplication implements ApplicationRunner {
 
-	
 	public static void main(String[] args) {
 		SpringApplication.run(ReactiveRedisApplication.class, args);
 	}
@@ -19,14 +18,5 @@ public class ReactiveRedisApplication implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 //		log.info("in application runner calling: curl http://localhost:8080/coffees ");
-//		
-//		WebClient webClient = WebClient.builder()
-//				  .baseUrl("http://localhost:8080").build();
-//		
-//		Coffee firstCoffee = webClient.get()
-//				.uri("/coffees").retrieve().bodyToFlux(Coffee.class)
-//				.blockFirst();
-//		
-//		log.info("{}", firstCoffee);
-	}	
+	}
 }
