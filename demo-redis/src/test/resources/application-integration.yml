@@ -1,0 +1,9 @@
+spring:
+  config:
+        activate:
+            on-profile: integration
+  redis:
+    host: localhost
+    port: 6370
+    clientName: demo-redis-client
+    clientType: LETTUCE

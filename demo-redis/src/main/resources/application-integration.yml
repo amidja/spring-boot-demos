@@ -1,0 +1,17 @@
+spring:
+  config.activate.on-profile: integration
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    clientName: demo-redis-client
+    clientType: LETTUCE
+  
+  devtools:
+    restart:
+      log-condition-evaluation-delta: true
+
+#logging:
+#  level: 
+#    root: ${LOG_ROOT_LEVEL:INFO}
+#    io.lettuce.core.protocol: ${LOG_APP_LEVEL:ERROR}

@@ -1,0 +1,8 @@
+spring:
+  config.activate.on-profile: docker
+
+  redis:
+    host: demo-redis-server
+    port: 6379
+    clientName: demo-redis-client
+    clientType: LETTUCE
