@@ -19,15 +19,20 @@ The key objective of creating this application following the guide is to learn h
  - Build docker image >> docker build -t demo-redis-img .
  	(This command builds an image and tags it.)
  	docker run -d --name demo-redis-app -p 8080:8080 demo-redis-img
+- docker run -e "SPRING_PROFILES_ACTIVE=integration" -d --name demo-redis-app -p 8080:8080 demo-redis-img
+
 
 ### Testing the application
 - curl http://localhost:8080/coffees
+
+
 
 ### Reference
 - Project Reactor: https://projectreactor.io/
 - Redis: https://redis.io/  
 - Redis Lettuce: https://lettuce.io/
 - Spring Data and Redis: https://docs.spring.io/spring-data/redis/docs/2.5.5/reference/html/#reference
+- Spring Boot With Profile: https://www.baeldung.com/spring-boot-docker-start-with-profile
 
 
 ### Markdown 

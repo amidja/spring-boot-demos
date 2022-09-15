@@ -9,18 +9,30 @@ services:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
       #- REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
-    ports:
-      - '6379:6379'
+    networks:
+      - redis-demo-backend
+    #ports:
+    #  - '6379:6379'
     volumes:
       - 'redis_data:/bitnami/redis/data'
 
   demo-redis-app:
     container_name: demo-redis-app
     build: ../demo-redis-app
-    links:
-      - demo-redis-server
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    networks:
+      - redis-demo-backend
+    
+    #links:
+    #  - demo-redis-server
     ports:
       - '8080:8080'
+  
+networks:
+  redis-demo-backend:
+    # Use a custom driver
+    driver: bridge
 
 volumes:
   redis_data:

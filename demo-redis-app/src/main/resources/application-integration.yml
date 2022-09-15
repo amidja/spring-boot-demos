@@ -2,7 +2,8 @@ spring:
   config.activate.on-profile: integration
 
   redis:
-    host: 127.0.0.1
+    #host: 127.0.0.1
+    host: host.docker.internal
     port: 6379
     clientName: demo-redis-client
     clientType: LETTUCE
