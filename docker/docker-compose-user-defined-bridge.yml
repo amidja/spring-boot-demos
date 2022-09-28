@@ -1,8 +1,6 @@
 version: '3'
 #https://github.com/bitnami/bitnami-docker-redis
 #docker run --name redis -e REDIS_PORT_NUMBER=7000 -p 7000:7000 bitnami/redis:latest
-#https://docs.docker.com/compose/networking/
-
 services:
   demo-redis-server:
     container_name: redis-server
@@ -13,6 +11,8 @@ services:
       #- REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
     networks:
       - redis-demo-backend
+    #ports:
+    #  - '6379:6379'
     volumes:
       - 'redis_data:/bitnami/redis/data'
 
@@ -23,11 +23,15 @@ services:
       - "SPRING_PROFILES_ACTIVE=docker"
     networks:
       - redis-demo-backend
+    
+    #links:
+    #  - demo-redis-server
     ports:
       - '8080:8080'
   
-networks: 
+networks:
   redis-demo-backend:
+    # Use a custom driver
     driver: bridge
 
 volumes:

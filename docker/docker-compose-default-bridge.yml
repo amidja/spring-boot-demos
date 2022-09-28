@@ -1,8 +1,6 @@
 version: '3'
 #https://github.com/bitnami/bitnami-docker-redis
 #docker run --name redis -e REDIS_PORT_NUMBER=7000 -p 7000:7000 bitnami/redis:latest
-#https://docs.docker.com/compose/networking/
-
 services:
   demo-redis-server:
     container_name: redis-server
@@ -11,8 +9,8 @@ services:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
       #- REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
-    networks:
-      - redis-demo-backend
+    ports:
+      - '6379:6379'
     volumes:
       - 'redis_data:/bitnami/redis/data'
 
@@ -20,16 +18,12 @@ services:
     container_name: demo-redis-app
     build: ../demo-redis-app
     environment:
-      - "SPRING_PROFILES_ACTIVE=docker"
-    networks:
-      - redis-demo-backend
+      - "SPRING_PROFILES_ACTIVE=docker"    
+    links:
+      - demo-redis-server
     ports:
       - '8080:8080'
   
-networks: 
-  redis-demo-backend:
-    driver: bridge
-
 volumes:
   redis_data:
     driver: local
