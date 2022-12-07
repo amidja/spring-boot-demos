@@ -56,7 +56,5 @@ If you don’t have redis-cli installed locally, you can run it from the Docker 
 docker exec -it redis-stack redis-cli
 ```
 
-
-
 #### TODO
 https://spring.io/guides/topicals/spring-boot-docker/

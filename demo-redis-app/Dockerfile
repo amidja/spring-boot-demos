@@ -1,7 +1,7 @@
 #FROM openjdk:11.0.2-jre-slim
 FROM openjdk:11
 RUN apt -y update && apt -y upgrade
-RUN apt -y install net-tools && apt -y install iputils-ping && apt -y install dnsutils
+RUN apt -y install net-tools && apt -y install iputils-ping && apt -y install dnsutils && apt -y install iproute2
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 
