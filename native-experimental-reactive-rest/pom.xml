@@ -10,10 +10,10 @@
 	</parent>
 	
 	<groupId>home.amidja.sb</groupId>
-	<artifactId>native-reactive-rest</artifactId>
+	<artifactId>native-experimental-reactive-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>native-reactive-rest</name>
+	<name>native-experimental-reactive-rest</name>
 	<description>Demo project for Spring Boot Native</description>
 	<properties>
 		<java.version>17</java.version>
