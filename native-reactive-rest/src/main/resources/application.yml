@@ -1,0 +1,11 @@
+spring:
+  config.activate.on-profile: ${SPRING_PROFILES_ACTIVE:local}
+      
+  devtools:
+    restart:
+      log-condition-evaluation-delta: true
+      
+logging:
+  level: 
+    root: ${LOG_ROOT_LEVEL:INFO}
+    io.lettuce.core.protocol: ${LOG_APP_LEVEL:ERROR}
