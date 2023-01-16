@@ -1,14 +1,13 @@
 package org.amidja.home.demo.coffee;
 
+
+//org.amidja.home.demo.coffee.ReactiveRedisApplication
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import lombok.extern.slf4j.Slf4j;
-
 @SpringBootApplication
-@Slf4j
 public class ReactiveRedisApplication implements ApplicationRunner {
 
 	public static void main(String[] args) {

@@ -2,7 +2,7 @@ spring:
   config.activate.on-profile: ${SPRING_PROFILES_ACTIVE:local}
   
   redis:
-    port: 6380
+    port: 6379
     clientName: local-demo-redis-client
     #clientType: LETTUCE
     
