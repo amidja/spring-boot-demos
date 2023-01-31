@@ -1,11 +1,10 @@
-spring:
-  config.activate.on-profile: ${SPRING_PROFILES_ACTIVE:local}
-      
-  devtools:
-    restart:
-      log-condition-evaluation-delta: true
-      
+server.port: 9090
+
+spring.output.ansi.enabled: always
+
 logging:
-  level: 
+  level:
     root: ${LOG_ROOT_LEVEL:INFO}
-    io.lettuce.core.protocol: ${LOG_APP_LEVEL:ERROR}
+    '[org.springframework]': ${LOG_ROOT_LEVEL:WARN}
+    '[org.springframework.web]': ${LOG_ROOT_LEVEL:DEBUG}
+    '[home.amidja.sb]': ${LOG_APP_LEVEL:DEBUG}
