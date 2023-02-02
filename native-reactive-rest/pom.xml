@@ -26,12 +26,15 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		
+		<!-- not supported by GraalVm -->
+		<!--
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		-->
 				
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -58,27 +61,35 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<profiles>
+						<profile>production</profile>
+						<profile>local</profile>
+					</profiles>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<!-- This section only need when creating Container with Cloud Native Buildpacks -->
 					<!--<classifier>${repackage.classifier}</classifier>-->
-					<builder>paketobuildpacks/builder:full</builder>
-					<!--
+					<!--<builder>paketobuildpacks/builder:full</builder>-->
+					<!--					
 					<image>
-						<builder>paketobuildpacks/builder:tiny</builder>								
+						<builder>paketobuildpacks/builder:full</builder>
 						<env>
-							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>														
+							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>												
 						</env> 
 					</image>
-					-->
+					-->					
 				</configuration>
 			</plugin>	
 			<plugin>
 			    <groupId>org.graalvm.buildtools</groupId>
 			    <artifactId>native-maven-plugin</artifactId>
+			    <configuration>
+					<quickBuild>true</quickBuild>					
+				</configuration>			    
 			</plugin>
 		</plugins>
 	</build>		

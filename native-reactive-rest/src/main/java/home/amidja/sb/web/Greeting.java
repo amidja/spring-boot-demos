@@ -1,4 +1,4 @@
-package home.amidja.sb;
+package home.amidja.sb.web;
 
 public class Greeting {
 
