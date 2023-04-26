@@ -63,8 +63,7 @@
 				<configuration>
 					<profiles>
 						<profile>production</profile>
-						<profile>local</profile>
-					</profiles>
+					</profiles>					
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
