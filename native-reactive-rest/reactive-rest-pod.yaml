@@ -1,0 +1,24 @@
+# mvn package
+# docker build --build-arg JAR_FILE=target/*.jar -t native-reactive-rest
+#
+# docker run will work only if minikube is not running 
+# docker container run -d -p 8080:9090 --name=reactive-rest native-reactive-rest
+#
+# How to publish local image to minikube 
+# https://www.baeldung.com/docker-local-images-minikube
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: reactive-rest
+  name: reactive-rest
+spec:
+  containers:
+  #- image: quay.io/qja266/springboot/native-reactive-rest:latest
+  - image: native-reactive-rest:latest
+    name: reactive-rest
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 9090
+      hostPort: 8080
