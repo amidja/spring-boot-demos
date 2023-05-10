@@ -1,0 +1,34 @@
+# Tested with OpenShift Local (OCP4.11)
+# - Had to add a imagePullSecret into the cluster so that app image could be pulled from quay.io
+kind: Pod
+apiVersion: v1
+metadata:    
+  name: native-reactive-rest    
+  namespace: first
+  labels:
+    app: native-reactive-rest
+    deployment: native-reactive-rest
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: quay-secret
+  priority: 0
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority    
+  securityContext:  
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - resources: {}    
+      name: native-reactive-rest
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        #runAsNonRoot: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent      
+      image: 'quay.io/qja266/springboot/native-reactive-rest:latest'
