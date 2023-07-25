@@ -1,10 +1,17 @@
 server.port: 9090
 
-spring:
+spring:   
   #output.ansi.enabled: always
   profiles:    
     active:
     - ${SPRING_PROFILE_ACTIVE:local}
+
+management:
+  endpoints:
+    web.exposure.include: "*"
+    enabled-by-default: true
+  endpoint:
+    shutdown.enabled: true
 
 logging:
   level:
