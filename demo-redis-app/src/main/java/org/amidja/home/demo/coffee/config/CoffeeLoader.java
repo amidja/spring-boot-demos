@@ -2,13 +2,12 @@ package org.amidja.home.demo.coffee.config;
 
 import java.util.UUID;
 
-import javax.annotation.PostConstruct;
-
 import org.amidja.home.demo.coffee.model.Coffee;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.core.ReactiveRedisOperations;
 import org.springframework.stereotype.Component;
 
+import jakarta.annotation.PostConstruct;
 import reactor.core.publisher.Flux;
 
 @Component
